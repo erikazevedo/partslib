@@ -1,1 +1,32 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="importmap">
+            {
+              "imports": {
+                "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+              }
+            }
+          </script>
+    </head>
+    <body>
+        <div id="app">
+            {{ message }}
+            <div>count is: {{ count }}</div>
+            <button type="button" @click="count -=1">-1</button>
+            <button type="button" @click="count +=1">+1</button>
+            <button type="button" @click="getData">do</button>
+            <div>
+                <select multiple style="height: 600px;">
+                    <option v-for="item of cats">{{ item.name }}</option>
+                </select>
+            </div>
+
+        </div>
+        <script type="module">
+            import { createApp } from 'vue';
+            import MyComponent from './index.js';
+            createApp(MyComponent).mount('#app');
+        </script>
+    </body>
+</html>
